@@ -77,17 +77,18 @@ a {
   position: absolute;
   margin-left: 850px;
   top: 60px;
-  width: 200px;
+  width: 200px;    
+  z-index: -1;
 }
 .foot {
   position: absolute;
-  top: 850px;
+  top: 1200px;
   margin-left: 40px;
   margin-bottom: 80px;
-  width: 300px;
+  //width: 300px;
 }
 .topicCircle {
-  fill: steelblue;
+  fill: #000000;
   stroke: steelblue;
   fill-opacity: 1;
   stroke-width: 0;

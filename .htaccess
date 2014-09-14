@@ -1,0 +1,8 @@
+
+RewriteEngine on
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+RewriteCond %{HTTP_HOST} ^respectfest\.ucyclubs\.co$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.respectfest\.ucyclubs\.co$
+RewriteRule ^/?$ "http\:\/\/respectfest\.ac\.cy\/" [R=301,L]
+

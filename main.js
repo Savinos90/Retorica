@@ -59,7 +59,8 @@ d3.custom.forceLayout = function (authors) {
 
     var cScale = d3.scale.linear()
         .domain(rScale.domain())
-        .range(["hsl(163, 47%, 57%)", "hsl(163, 99%, 20%)"])
+        //.range(["hsl(163, 47%, 57%)", "hsl(163, 99%, 20%)"])
+        .range(["hsl(338, 90%, 90%)", "hsl(338, 90%, 90%)"])
         .interpolate(d3.interpolateHcl)
 
     _.each(docs, function(d,i){
@@ -113,10 +114,13 @@ d3.custom.forceLayout = function (authors) {
     //Background
     svg.append('rect')
         .attr({
-            x:0, y:0, width: w, height: h
+            x:0, y:0, width: w, height: h,
+            'class': 'depImage',
+            'preserveAspectRatio': 'xMinYMin slice',
+            /*'xlink:href': 'img/thumb/onek.jpg'*/                        
         })
         .on('click', closeTopics)
-
+    
     svg = svg.append('g')
         .attr({
             transform: 'translate(60,-100)'
@@ -136,7 +140,7 @@ d3.custom.forceLayout = function (authors) {
             r: function(d,i){return d.r-2}
         })
         .style({
-            fill: function(d,i){return cScale(d.value)},
+            fill: function(d,i){return cScale(d.value)}, //rgb(81,195,196)
             stroke: function(d,i){
                 return d3.hsl(cScale(d.value)).darker(1.5)
             }
@@ -180,7 +184,8 @@ d3.custom.forceLayout = function (authors) {
             'text-anchor': 'middle'
         })
         .style({
-            fill: 'hsl(0,0%,95%)'
+           // fill: 'hsl(0,0%,95%)'
+	    fill: 'hsl(57,40%,100%)'
         })
         .text(function(d,i){return d.topic})
 
@@ -325,7 +330,7 @@ d3.custom.forceLayout = function (authors) {
     function closeTopics (d,i){
 
         d3.select('.title')
-            .text('Retórica')
+            .text('Respect Festival')
         d3.select('.description')
             .transition()
             .style({
@@ -495,7 +500,9 @@ d3.custom.forceLayout = function (authors) {
             .on('click', function(d2,i){
                 if (!d.fixed) return
                 d3.event.stopPropagation()
-
+		//open in new tab
+		//window.location.href = d2.url;
+		//console.log(d2.url)
                 d3.select('.description2 .nome')
                     .text(d2.author)
                 d3.select('.description2 .partido')
@@ -503,7 +510,7 @@ d3.custom.forceLayout = function (authors) {
                 d3.select('.description2 .email')
                     .text(function(){
                         if (d2.email == 'NA') {
-                            return 'email não disponível'
+                            return 'Θα πάω'
                         } else {
                             return d2.email
                         }

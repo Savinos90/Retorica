@@ -90,7 +90,7 @@ d3.custom.forceLayout = function (authors) {
             width: w, height: h
         })
         .style({
-            fill: 'white'
+            fill: 'rgba(83,195,192,0.1)'
         })
 
     //Defs
@@ -115,9 +115,10 @@ d3.custom.forceLayout = function (authors) {
     svg.append('rect')
         .attr({
             x:0, y:0, width: w, height: h,
-            'class': 'depImage',
+	    
+            /*'class': 'depImage',
             'preserveAspectRatio': 'xMinYMin slice',
-            /*'xlink:href': 'img/thumb/onek.jpg'*/                        
+            'xlink:href': 'img/thumb/onek.jpg'*/                        
         })
         .on('click', closeTopics)
     
